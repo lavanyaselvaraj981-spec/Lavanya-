@@ -1,0 +1,16 @@
+// Smooth scroll to section
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+// Add animation when scrolling
+window.addEventListener("scroll", () => {
+  const elements = document.querySelectorAll(".about, .projects, .contact");
+  elements.forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    if (position < window.innerHeight - 100) {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }
+  });
+});
